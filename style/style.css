@@ -3,6 +3,14 @@
 }
 
 
-.card-img-top{
-    width: 500px;
+#card1{
+    background: #ffc107;
+}
+
+#card2{
+    background: #28a745;
+}
+
+#card3{
+    background: #6ec7e0;
 }
