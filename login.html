@@ -11,6 +11,15 @@
 		position:absolute;
 		font-size: 2vw;
 	}
+  h1 {
+    
+    font-size: 5vw;
+  }
+  
+  body{
+    background-color:lightblue;
+  } 
+
 
 
 	</style>
@@ -18,8 +27,10 @@
 <body>
 
 <div  class="dropdown-menu">
+
   <form id = "inputstuff" class="px-4 py-3">
     <div class="form-group">
+       <h1> BCIT FOODS </h1>
       <label for="exampleDropdownFormEmail1">Email address: </label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="John_Smith@gmail.com">
     </div>
@@ -41,15 +52,16 @@
   
 	
 	 <div class="dropdown-divider"></div>
- 		<a class="dropdown-item" href="#">Sign Up</a>
-  		<a class="dropdown-item" href="#"> Forgot password?</a>
+ 		<a class= "dropdown-item" href="#"> Sign Up</a>
+  	<a class= "dropdown-item" href="#"> Forgot password?</a>
 	</div>
+
   </form>
   	
 
 	<script>
-		let heightofpw = (window.innerHeight - (0.2 * window.innerHeight)) / 2;
-		let widthofpw = (window.innerWidth - (0.2 * window.innerWidth)) / 2 ;
+		let heightofpw = (window.innerHeight - (0.5 * window.innerHeight)) / 2;
+		let widthofpw = (window.innerWidth - (0.30 * window.innerWidth)) / 2 ;
 		document.getElementById("inputstuff").position = "absolute";
 		document.getElementById("inputstuff").style.top = heightofpw + "px";
 		document.getElementById("inputstuff").style.left = widthofpw + "px";
