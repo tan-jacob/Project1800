@@ -1,3 +1,4 @@
+/**
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <a href="#" class="navbar-brand">Brand</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -16,3 +17,14 @@
         </div>
     </div>
 </nav>
+the nav is supposed to be inside the html not */ 
+function getName(){
+        db.collection("Tim Hortons").doc("Blueberry Muffin")
+        .onSnapshot{
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("blueberry").innerHTML = ("Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price);
+            }
+        }
+    }
+    getName();
