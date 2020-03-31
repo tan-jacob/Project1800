@@ -57,9 +57,9 @@
                 <div class="card h-100">
                     <img class="card-img-top foodpics" src="images/timbits.png">
                     <div class="card-body">
-                        <h3 class="card-title">Tim Bits</h3>
-                        <p class="card-description">
-                            Variety of drinks, bagels, doughnuts and sandwiches.
+                        <h3 class="card-title">TimBits</h3>
+                        <p id = "Timbits">
+                         
                         </p>
                     </div>
                     <div class="card-footer">
@@ -71,10 +71,10 @@
                 <div class="card h-100">
                     <img class="card-img-top foodpics" src="images/timscoffee.png">
                     <div class="card-body">
-                        <h3 class="card-title">Vendor 2</h3>
-                        <p class="card-description">
-                            Vendor 2 Description
-                        </p>
+                        <h3 class="card-title">Blueberry Muffin</h3>
+                        <p id="blueberry"></p>
+                            
+                        
                     </div>
                     <div class="card-footer">
                         <a href="tims.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
@@ -85,9 +85,9 @@
                 <div class="card h-100">
                     <img class="card-img-top" src="images/timhortons.png">
                     <div class="card-body">
-                        <h3 class="card-title">Vendor 3</h3>
-                        <p class="card-description">
-                            Vendor 3 Description
+                        <h3 class="card-title">Original Blend Coffee</h3>
+                        <p id="OriginalBlendCoffeeFood">
+                            
                         </p>
                     </div>
                     <div class="card-footer">
@@ -100,9 +100,8 @@
                 <div class="card h-100">
                     <img class="card-img-top" src="images/timhortons.png">
                     <div class="card-body">
-                        <h3 class="card-title">Vendor 4</h3>
-                        <p class="card-description">
-                            Vendor 4 Description
+                        <h3 class="card-title">Classic Bagel</h3>
+                        <p id ="ClassicBagel">
                         </p>
                     </div>
                     <div class="card-footer">
@@ -136,12 +135,65 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    <script src="scripts/scripts.js"></script>
+    
+    <script>
+    function getBlueBerryMuffin(){
+        db.collection("Tims")
+        .doc("BlueberryMuffin")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("blueberry").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    function getTimbits(){
+        db.collection("Tims")
+        .doc("Timbits")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("Timbits").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    
+    function getClassicBagel(){
+        db.collection("Tims")
+        .doc("Classic Bagel")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("ClassicBagel").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    
+    function getOriginalBlendCoffeeFood(){
+        db.collection("Tims")
+        .doc("Original Blend Coffee")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("OriginalBlendCoffeeFood").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    
+
+
+
+/**
 
     <!--------------------------------------------------------------------->
     <!-- Make calls to your own JavaScript functions, here below-->
     <!---------------------------------------------------------------------->
-
+    */
+    getTimbits();
+    getBlueBerryMuffin();
+    getOriginalBlendCoffeeFood();
+    getClassicBagel();
+</script>
 
 </body>
 
