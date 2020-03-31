@@ -1,18 +1,119 @@
-<Doctype!>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<style>
-	body{
-		background-color:lightblue;
+    <meta charset="utf-8">
+    <title>My BCIT Project</title>
+    <meta name="comp1800 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
 
-}
-</style>
-
+    <!----------------------------------------------->
+    <!--  Meta tag for rendering on mobile devices -->
+    <!----------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!----------------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+   
+    <!------------------------>
+    <!-- Your own CSS files -->
+    <!------------------------>
+    
 </head>
 <body>
-	<h1> Welcome to eating lots of foods :) </h1>
-	<p>sdfbsksbgksgdkb</p>
-	<h1> This page will have all the food options </h1>
+    <!----------------------->
+    <!--  HTML Section -->
+    <!----------------------->
+    <div id = "blueberrymuffinsfood">
+    <h1> Blueberry Muffin</h1>
+    <h1 id = "blueberry"></h1>
+	</div>
+	<div id = "timbitsfood">
+    <h1> Timbits </h1>
+    <h1 id = "Timbits"> </h1>
+	</div>
+	<div id = "classicbagelsfood">
+    <h1> Classic Bagel </h1>
+    <h1 id = "ClassicBagel"> </h1>
+	</div>
+	<div>
+	<h1> Classic Coffee Medium </h1>
+	<h1 id = "OriginalBlendCoffeeFood"> </h1>
+	</div>
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related    -->
+    <!----------------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+   
+  
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+   
+    <script src = "scripts/firebase_api.js"> </script>
+    <script>
+        function getBlueBerryMuffin(){
+        db.collection("Tims")
+        .doc("BlueberryMuffin")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("blueberry").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    getBlueBerryMuffin();
+      function getTimbits(){
+        db.collection("Tims")
+        .doc("Timbits")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("Timbits").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    getTimbits();
+    function getClassicBagel(){
+        db.collection("Tims")
+        .doc("Classic Bagel")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("ClassicBagel").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    getClassicBagel();
+    function getOriginalBlendCoffeeFood(){
+        db.collection("Tims")
+        .doc("Original Blend Coffee")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("OriginalBlendCoffeeFood").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    getOriginalBlendCoffeeFood();
+
+
+
+</script>
+
+     <!--------------------------------------------------------------------->
+    <!-- Make calls to your own JavaScript functions, here below-->
+    <!---------------------------------------------------------------------->
+
 
 </body>
 </html>
