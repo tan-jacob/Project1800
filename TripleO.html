@@ -28,6 +28,10 @@
 </head>
 
 <body>
+    
+     <button type  = "button" onclick = "finishlogging()"></button>
+     <h1 id = "finishlog"></h1>
+     <h1 id = "whatever"></h1>
     <!----------------------->
     <!--  HTML Section -->
     <!----------------------->
@@ -58,13 +62,14 @@
                 <div class="card h-100">
                     <img class="foodpics" src="tripleOimage/baconcheddar.jpg">
                     <div class="card-body">
-                        <h3 class="card-title">Bacon Cheddar Buger</h3>
+                        <h3 class="card-title">Bacon Cheddar Burger</h3>
                         <p id = "BaconCheddar">
                          
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="TripleO.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('Baconcheddar')" >Add to Calorie Count</button>
+                        
                     </div>
                 </div>
             </div>
@@ -78,7 +83,7 @@
                         
                     </div>
                     <div class="card-footer">
-                        <a href="TripleO.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('ChipoleBBQ')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -92,7 +97,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="TripleO.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('ChickenBurger')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -106,7 +111,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="TripleO.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('SpicyUltimate')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -120,7 +125,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="TripleO.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('DippinChicken')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -134,7 +139,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="TripleO.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('BCchicken')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -165,14 +170,27 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
     
+   
+ //saves into local storage something called total
+    
+    <script src = "scripts/finalbutton.js"> </script>
+
+
+
+
+
+
     <script>
+
     function getBCCHICKEN(){
         db.collection("TripleO")
         .doc("BCchicken")
         .onSnapshot(
             function(snap){
                 console.log(snap.data());
-                document.getElementById("BCCHICKEN").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+                var cal = snap.data().Calories;
+                localStorage.setItem(snap.id, cal);
+                document.getElementById("BCCHICKEN").innerHTML = "Calories: " + cal + "<br>" + "Price: " + snap.data().Price;
             }
         )
     }
@@ -227,6 +245,19 @@
                 document.getElementById("SUC").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
             }
         )
+    }
+    function yesterdayscount(){
+        firebase.auth().onAuthStateChanged(function(user){
+            db.collection("users")
+            .doc(user.uid)
+            if (d.data().total != null){
+                x = d.data().total;
+            }
+            else{
+                x = 0;
+            }
+            document.getElementById("yesterdaycount").innerHTML = x;
+            } )
     }
     
     
