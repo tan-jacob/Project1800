@@ -50,7 +50,7 @@
             </div>
         </div>
     </nav>
-
+    <h1 id="yesterdayscount"> </h1>
     <!-- Card Deck Layout -->
     <div class="container mt-5">
         <div class="row">
@@ -64,7 +64,8 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="tims.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('Timbits')" >Add to Calorie Count</button>
+                        <p id = "whatever"> </p>
                     </div>
                 </div>
             </div>
@@ -166,6 +167,45 @@
     <!--------------------------------------------------------------------->
     
     <script>
+       
+    function addCount(item){
+        
+        var cal = localStorage.getItem(item)
+        console.log(cal);
+        console.log(item);
+        let count = parseInt(localStorage.getItem("total")) + parseInt(cal);
+        localStorage.setItem("total", count);
+        document.getElementById("whatever").innerHTML = count;
+    }   
+    function finishlogging(){
+        var finish = localStorage.getItem("total");
+        firebase.auth().onAuthStateChanged(function(user){
+            db.collection("users")
+            .doc(user.uid)
+            .update( {
+                "mytotal": finish
+            } )
+
+
+             })
+        localStorage.getItem("total", 0);
+
+    }
+
+    function yesterdayscount(){
+        firebase.auth().onAuthStateChanged(function(user){
+            db.collection("users")
+            .doc(user.uid)
+            if (d.data().total != null){
+                x = d.data().total;
+            }
+            else{
+                x = 0;
+            }
+            document.getElementById("yesterdaycount").innerHTML = x;
+            } )
+    }
+
     function getBlueBerryMuffin(){
         db.collection("Tims")
         .doc("BlueberryMuffin")
