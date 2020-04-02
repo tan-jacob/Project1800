@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel = "stylesheet" href = "imageadjust.css"/>
 
     <!------------------------>
     <!-- Your own CSS files -->
@@ -55,7 +56,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card h-100">
-                    <img class="card-img-top foodpics" src="images/timbits.png">
+                    <img class="foodpics" src="images/timbits.png">
                     <div class="card-body">
                         <h3 class="card-title">TimBits</h3>
                         <p id = "Timbits">
@@ -69,7 +70,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card h-100">
-                    <img class="card-img-top foodpics" src="images/timscoffee.png">
+                    <img class="foodpics" src="images/blueberry-muffin.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Blueberry Muffin</h3>
                         <p id="blueberry"></p>
@@ -83,7 +84,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card h-100">
-                    <img class="card-img-top" src="images/timhortons.png">
+                    <img class="foodpics" src="images/timscoffee.png">
                     <div class="card-body">
                         <h3 class="card-title">Original Blend Coffee</h3>
                         <p id="OriginalBlendCoffeeFood">
@@ -96,9 +97,37 @@
                 </div>
             </div>
 
-            <div class="col-md-4 mt-5">
+            <div class="col-md-4">
                 <div class="card h-100">
-                    <img class="card-img-top" src="images/timhortons.png">
+                    <img class="foodpics" src="images/turkeybacon.jpg">
+                    <div class="card-body">
+                        <h3 class="card-title">Turkey Bacon Club</h3>
+                        <p id ="TurkeyBacon">
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="tims.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                    </div>
+                </div>
+            </div>
+   
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img class="foodpics" src="images/cookie.jpg">
+                    <div class="card-body">
+                        <h3 class="card-title">Classic Cookie</h3>
+                        <p id ="ClassicCookie">
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="tims.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                    </div>
+                </div>
+            </div>
+       
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img class="foodpics" src="images/bagel.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Classic Bagel</h3>
                         <p id ="ClassicBagel">
@@ -179,6 +208,29 @@
             }
         )
     }
+    function getTurkeyBaconClub(){
+        db.collection("Tims")
+        .doc("TurkeyBaconClub")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("TurkeyBacon").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    function getClassicCookie(){
+        db.collection("Tims")
+        .doc("ClassicCookies")
+        .onSnapshot(
+            function(snap){
+                console.log(snap.data());
+                document.getElementById("ClassicCookie").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+    }
+    
+    
+    
     
 
 
@@ -193,6 +245,8 @@
     getBlueBerryMuffin();
     getOriginalBlendCoffeeFood();
     getClassicBagel();
+    getClassicCookie();
+    getTurkeyBaconClub();
 </script>
 
 </body>
