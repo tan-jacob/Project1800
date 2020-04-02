@@ -5,7 +5,7 @@ function addCount(item){
         console.log(item);
         let count = parseInt(localStorage.getItem("total")) + parseInt(cal);
         localStorage.setItem("total", count);
-        document.getElementById("whatever").innerHTML = count;
+        document.getElementById("currenttotal").innerHTML = count;
     }   
     //updates data for user 
     function finishlogging(){

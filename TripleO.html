@@ -29,9 +29,10 @@
 
 <body>
     
-     <button type  = "button" onclick = "finishlogging()"></button>
+    <!--button type  = "button" onclick = "finishlogging()"></button> -->
      <h1 id = "finishlog"></h1>
-     <h1 id = "whatever"></h1>
+     <h1 id = "currenttotal"> </h1>
+     
     <!----------------------->
     <!--  HTML Section -->
     <!----------------------->
@@ -69,7 +70,6 @@
                     </div>
                     <div class="card-footer">
                         <button type="button" onclick="addCount('Baconcheddar')" >Add to Calorie Count</button>
-                        
                     </div>
                 </div>
             </div>
@@ -171,16 +171,18 @@
     <!--------------------------------------------------------------------->
     
    
- //saves into local storage something called total
-    
+
+   
+   
+
+
+
+
+
     <script src = "scripts/finalbutton.js"> </script>
-
-
-
-
-
-
-    <script>
+        
+     
+   <script>
 
     function getBCCHICKEN(){
         db.collection("TripleO")
