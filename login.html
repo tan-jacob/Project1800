@@ -55,7 +55,7 @@
     <div class="section-space"></div>
 
     <div id="firebaseui-auth-container" class="mt-5"></div>
-
+    <div id="loader">Loading...</div>
 
 
 
@@ -118,7 +118,8 @@
                     if (authResult.additionalUserInfo.isNewUser) {
                         db.collection("Users").doc(user.uid).set({
                                 name: user.displayName,
-                                email: user.email
+                                email: user.email,
+                                calories: 0
                             }).then(function () {
                                 console.log("New user added to firestore");
                                 window.location.assign("index.html");
