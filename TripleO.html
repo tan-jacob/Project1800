@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <link rel = "stylesheet" href = "style/style.css"/>
+    <link rel="stylesheet" href="style/style.css" />
 
     <!------------------------>
     <!-- Your own CSS files -->
@@ -28,9 +28,9 @@
 </head>
 
 <body>
-    
- 
-     
+
+
+
     <!----------------------->
     <!--  HTML Section -->
     <!----------------------->
@@ -64,12 +64,13 @@
                     <img class="foodpics" src="tripleOimage/baconcheddar.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Bacon Cheddar Burger</h3>
-                        <p id = "BaconCheddar">
-                         
+                        <p id="BaconCheddar">
+
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('Baconcheddar', 'TripleO')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('Baconcheddar', 'TripleO')">Add to Calorie
+                            Count</button>
                     </div>
                 </div>
             </div>
@@ -79,11 +80,11 @@
                     <div class="card-body">
                         <h3 class="card-title">Chipotle BBQ Bacon Melt Burger</h3>
                         <p id="Chipotle"></p>
-                            
-                        
+
+
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('ChipoleBBQ', 'TripleO')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('ChipoleBBQ', 'TripleO')">Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -93,11 +94,12 @@
                     <div class="card-body">
                         <h3 class="card-title">Chicken Burger</h3>
                         <p id="ChickenBurger">
-                            
+
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('ChickenBurger', 'TripleO')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('ChickenBurger', 'TripleO')">Add to Calorie
+                            Count</button>
                     </div>
                 </div>
             </div>
@@ -107,39 +109,41 @@
                     <img class="foodpics" src="tripleOimage/spicychickewn.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Spicy Ultimate Crunch</h3>
-                        <p id ="SUC">
+                        <p id="SUC">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('SpicyUltimate', 'TripleO')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('SpicyUltimate', 'TripleO')">Add to Calorie
+                            Count</button>
                     </div>
                 </div>
             </div>
-   
+
             <div class="col-md-4">
                 <div class="card h-100">
                     <img class="foodpics" src="tripleOimage/DrippinChicken.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Dippin Chicken Tender</h3>
-                        <p id ="DCT">
+                        <p id="DCT">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('DippinChicken', 'TripleO')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('DippinChicken', 'TripleO')">Add to Calorie
+                            Count</button>
                     </div>
                 </div>
             </div>
-       
+
             <div class="col-md-4">
                 <div class="card h-100">
                     <img class="foodpics" src="tripleOimage/bcchicken.jpg">
                     <div class="card-body">
                         <h3 class="card-title">BC Chicken</h3>
-                        <p id ="BCCHICKEN">
+                        <p id="BCCHICKEN">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('BCchicken', 'TripleO')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('BCchicken', 'TripleO')">Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -171,107 +175,19 @@
     <!--------------------------------------------------------------------->
 
     <script src="scripts/scripts.js"> </script>
-        
-     
-   <script>
-
-    function getBCCHICKEN(){
-        db.collection("TripleO")
-        .doc("BCchicken")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                var cal = snap.data().Calories;
-                localStorage.setItem(snap.id, cal);
-                document.getElementById("BCCHICKEN").innerHTML = "Calories: " + cal + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getBaconCheddar(){
-        db.collection("TripleO")
-        .doc("Baconcheddar")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("BaconCheddar").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    function getChickenBurger(){
-        db.collection("TripleO")
-        .doc("ChickenBurger")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("ChickenBurger").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    function getChipotle(){
-        db.collection("TripleO")
-        .doc("ChipoleBBQ")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("Chipotle").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getDCT(){
-        db.collection("TripleO")
-        .doc("DippinChicken")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("DCT").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getSpicyUlt(){
-        db.collection("TripleO")
-        .doc("SpicyUltimate")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("SUC").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function yesterdayscount(){
-        firebase.auth().onAuthStateChanged(function(user){
-            db.collection("users")
-            .doc(user.uid)
-            if (d.data().total != null){
-                x = d.data().total;
-            }
-            else{
-                x = 0;
-            }
-            document.getElementById("yesterdaycount").innerHTML = x;
-            } )
-    }
-    
-    
-    
-    
-
-
-
-/**
-
+    <script>
+        /**
     <!--------------------------------------------------------------------->
     <!-- Make calls to your own JavaScript functions, here below-->
     <!---------------------------------------------------------------------->
     */
-    getSpicyUlt();
-    getDCT();
-    getChipotle();
-    getChickenBurger();
-    getBaconCheddar();
-    getBCCHICKEN();
-</script>
+        getSpicyUlt();
+        getDCT();
+        getChipotle();
+        getChickenBurger();
+        getBaconCheddar();
+        getBCCHICKEN();
+    </script>
 
 </body>
 

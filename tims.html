@@ -60,10 +60,10 @@
                     <img class="foodpics" src="images/timbits.png">
                     <div class="card-body">
                         <h3 class="card-title">TimBits</h3>
-                        <p id = "Timbits"></p>
+                        <p id="Timbits"></p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('Timbits', 'Tims')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('Timbits', 'Tims')">Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -73,11 +73,12 @@
                     <div class="card-body">
                         <h3 class="card-title">Blueberry Muffin</h3>
                         <p id="blueberry"></p>
-                            
-                        
+
+
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('BlueberryMuffin', 'Tims')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('BlueberryMuffin', 'Tims')">Add to Calorie
+                            Count</button>
                     </div>
                 </div>
             </div>
@@ -87,11 +88,12 @@
                     <div class="card-body">
                         <h3 class="card-title">Original Blend Coffee</h3>
                         <p id="OriginalBlendCoffeeFood">
-                            
+
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('Original Blend Coffee', 'Tims')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('Original Blend Coffee', 'Tims')">Add to Calorie
+                            Count</button>
                     </div>
                 </div>
             </div>
@@ -101,39 +103,40 @@
                     <img class="foodpics" src="images/turkeybacon.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Turkey Bacon Club</h3>
-                        <p id ="TurkeyBacon">
+                        <p id="TurkeyBacon">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('TurkeyBaconClub', 'Tims')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('TurkeyBaconClub', 'Tims')">Add to Calorie
+                            Count</button>
                     </div>
                 </div>
             </div>
-   
+
             <div class="col-md-4">
                 <div class="card h-100">
                     <img class="foodpics" src="images/cookie.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Classic Cookie</h3>
-                        <p id ="ClassicCookie">
+                        <p id="ClassicCookie">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('ClassicCookies', 'Tims')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('ClassicCookies', 'Tims')">Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
-       
+
             <div class="col-md-4">
                 <div class="card h-100">
                     <img class="foodpics" src="images/bagel.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Classic Bagel</h3>
-                        <p id ="ClassicBagel">
+                        <p id="ClassicBagel">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" onclick="addCount('Classic Bagel', 'Tims')" >Add to Calorie Count</button>
+                        <button type="button" onclick="addCount('Classic Bagel', 'Tims')">Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -163,93 +166,21 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    
+
     <script src="scripts/scripts.js"></script>
     <script>
-
-    function getBlueBerryMuffin(){
-        db.collection("Tims")
-        .doc("BlueberryMuffin")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("blueberry").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-
-    function getTimbits(){
-        db.collection("Tims")
-        .doc("Timbits")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("Timbits").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    function getClassicBagel(){
-        db.collection("Tims")
-        .doc("Classic Bagel")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("ClassicBagel").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    function getOriginalBlendCoffeeFood(){
-        db.collection("Tims")
-        .doc("Original Blend Coffee")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("OriginalBlendCoffeeFood").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getTurkeyBaconClub(){
-        db.collection("Tims")
-        .doc("TurkeyBaconClub")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("TurkeyBacon").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getClassicCookie(){
-        db.collection("Tims")
-        .doc("ClassicCookies")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("ClassicCookie").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    
-    
-    
-
-
-
-/**
-
+        /**
     <!--------------------------------------------------------------------->
     <!-- Make calls to your own JavaScript functions, here below-->
     <!---------------------------------------------------------------------->
     */
-    getTimbits();
-    getBlueBerryMuffin();
-    getOriginalBlendCoffeeFood();
-    getClassicBagel();
-    getClassicCookie();
-    getTurkeyBaconClub();
-</script>
+        getTimbits();
+        getBlueBerryMuffin();
+        getOriginalBlendCoffeeFood();
+        getClassicBagel();
+        getClassicCookie();
+        getTurkeyBaconClub();
+    </script>
 
 </body>
 
