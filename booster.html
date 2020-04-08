@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <link rel = "stylesheet" href = "imageadjust.css"/>
+    <link rel="stylesheet" href="imageadjust.css" />
 
     <!------------------------>
     <!-- Your own CSS files -->
@@ -59,12 +59,12 @@
                     <img class="foodpics" src="boosterjuiceimage/mindovermatcha.jpeg">
                     <div class="card-body">
                         <h3 class="card-title">Mind Over Matcha</h3>
-                        <p id = "MindOverMatcha">
-                         
+                        <p id="MindOverMatcha">
+
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="booster.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('MindOverMatcha')">Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -74,11 +74,9 @@
                     <div class="card-body">
                         <h3 class="card-title">Pomegranate Punch</h3>
                         <p id="PomegranatePunch"></p>
-                            
-                        
                     </div>
                     <div class="card-footer">
-                        <a href="booster.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('PomegranatePunch')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -87,12 +85,10 @@
                     <img class="foodpics" src="boosterjuiceimage/rippedberry.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Ripped Berry</h3>
-                        <p id="RippedBerry">
-                            
-                        </p>
+                        <p id="RippedBerry"></p>
                     </div>
                     <div class="card-footer">
-                        <a href="booster.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('RippedBerry')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -102,39 +98,39 @@
                     <img class="foodpics" src="boosterjuiceimage/strawberrybanana.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Starberries Bananas</h3>
-                        <p id ="StarBerriesBananasRegular">
+                        <p id="StarBerriesBananasRegular">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="booster.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('StarBerriesBananasRegular')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
-   
+
             <div class="col-md-4">
                 <div class="card h-100">
                     <img class="foodpics" src="boosterjuiceimage/wildberry.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Wild Berry</h3>
-                        <p id ="WildBerry">
+                        <p id="WildBerry">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="booster.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('WildBerry')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
-       
+
             <div class="col-md-4">
                 <div class="card h-100">
                     <img class="foodpics" src="boosterjuiceimage/cococrush.jpg">
                     <div class="card-body">
                         <h3 class="card-title">Coco Crush</h3>
-                        <p id ="CocoCrush">
+                        <p id="CocoCrush">
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="booster.html" class="btn btn-neutral btn-round stretched-link">See All Products</a>
+                        <button type="button" onclick="addCount('CocoCrush')" >Add to Calorie Count</button>
                     </div>
                 </div>
             </div>
@@ -164,90 +160,99 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    
+
     <script>
-    function getMindOverMatcha(){
-        db.collection("Booster")
-        .doc("MindOverMatcha")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("MindOverMatcha").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getPomegranatePunch(){
-        db.collection("Booster")
-        .doc("PomegranatePunch")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("PomegranatePunch").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    function getRippedBerry(){
-        db.collection("Booster")
-        .doc("RippedBerry")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("RippedBerry").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    function getStar(){
-        db.collection("Booster")
-        .doc("StarBerriesBananasRegular")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("StarBerriesBananasRegular").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getWildBerry(){
-        db.collection("Booster")
-        .doc("WildBerry")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("WildBerry").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    function getCocoCrush(){
-        db.collection("Booster")
-        .doc("Coco Crush")
-        .onSnapshot(
-            function(snap){
-                console.log(snap.data());
-                document.getElementById("CocoCrush").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-            }
-        )
-    }
-    
-    
-    
-    
+        function getMindOverMatcha() {
+            db.collection("Booster")
+                .doc("MindOverMatcha")
+                .onSnapshot(
+                    function (snap) {
+                        console.log(snap.data());
+                        document.getElementById("MindOverMatcha").innerHTML = "Calories: " + snap.data().Calories +
+                            "<br>" + "Price: " + snap.data().Price;
+                    }
+                )
+        }
+
+        function getPomegranatePunch() {
+            db.collection("Booster")
+                .doc("PomegranatePunch")
+                .onSnapshot(
+                    function (snap) {
+                        console.log(snap.data());
+                        document.getElementById("PomegranatePunch").innerHTML = "Calories: " + snap.data().Calories +
+                            "<br>" + "Price: " + snap.data().Price;
+                    }
+                )
+        }
+
+        function getRippedBerry() {
+            db.collection("Booster")
+                .doc("RippedBerry")
+                .onSnapshot(
+                    function (snap) {
+                        console.log(snap.data());
+                        document.getElementById("RippedBerry").innerHTML = "Calories: " + snap.data().Calories +
+                            "<br>" + "Price: " + snap.data().Price;
+                    }
+                )
+        }
+
+        function getStar() {
+            db.collection("Booster")
+                .doc("StarBerriesBananasRegular")
+                .onSnapshot(
+                    function (snap) {
+                        console.log(snap.data());
+                        document.getElementById("StarBerriesBananasRegular").innerHTML = "Calories: " + snap.data()
+                            .Calories + "<br>" + "Price: " + snap.data().Price;
+                    }
+                )
+        }
+
+        function getWildBerry() {
+            db.collection("Booster")
+                .doc("WildBerry")
+                .onSnapshot(
+                    function (snap) {
+                        console.log(snap.data());
+                        document.getElementById("WildBerry").innerHTML = "Calories: " + snap.data().Calories + "<br>" +
+                            "Price: " + snap.data().Price;
+                    }
+                )
+        }
+
+        function getCocoCrush() {
+            db.collection("Booster")
+                .doc("Coco Crush")
+                .onSnapshot(
+                    function (snap) {
+                        console.log(snap.data());
+                        document.getElementById("CocoCrush").innerHTML = "Calories: " + snap.data().Calories + "<br>" +
+                            "Price: " + snap.data().Price;
+                    }
+                )
+        }
 
 
 
-/**
 
-    <!--------------------------------------------------------------------->
-    <!-- Make calls to your own JavaScript functions, here below-->
-    <!---------------------------------------------------------------------->
-    */
-    getMindOverMatcha();
-    getPomegranatePunch();
-    getRippedBerry();
-    getStar();
-    getWildBerry();
-    getCocoCrush();
-</script>
+
+
+
+        /**
+
+            <!--------------------------------------------------------------------->
+            <!-- Make calls to your own JavaScript functions, here below-->
+            <!---------------------------------------------------------------------->
+            */
+        getMindOverMatcha();
+        getPomegranatePunch();
+        getRippedBerry();
+        getStar();
+        getWildBerry();
+        getCocoCrush();
+    </script>
 
 </body>
 
