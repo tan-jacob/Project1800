@@ -3,45 +3,19 @@
 function addCount(item, vendor) {
     firebase.auth().onAuthStateChanged(function (user) {
         db.collection(vendor)
-        .doc(item)
-        .onSnapshot(
-            function (snap) {
-                console.log(snap.data().Calories);
-                let x =  snap.data().Calories;
-                db.collection("Users").doc(user.uid).update({
-                    calories: firebase.firestore.FieldValue.increment(x)
-                });
-            }
-        );
+            .doc(item)
+            .onSnapshot(
+                function (snap) {
+                    console.log(snap.data().Calories);
+                    let x = snap.data().Calories;
+                    db.collection("Users").doc(user.uid).update({
+                        calories: firebase.firestore.FieldValue.increment(x)
+                    });
+                }
+            );
     })
 }
 
-////////////////////////////////////////////// Chris Functions //////////////////////////////////////////////
-
-function finishlogging() {
-    var finish = localStorage.getItem("total");
-    firebase.auth().onAuthStateChanged(function (user) {
-        db.collection("users")
-            .doc(user.uid)
-            .update({
-                "mytotal": finish
-            })
-    })
-    localStorage.getItem("total", 0);
-}
-
-function yesterdayscount() {
-    firebase.auth().onAuthStateChanged(function (user) {
-        db.collection("users")
-            .doc(user.uid)
-        if (d.data().total != null) {
-            x = d.data().total;
-        } else {
-            x = 0;
-        }
-        document.getElementById("yesterdaycount").innerHTML = x;
-    })
-}
 
 ////////////////////////////////////////////// Profile Functions //////////////////////////////////////////////
 
@@ -66,68 +40,70 @@ function getName() {
 
 
 ////////////////////////////////////////////// Tims Functions //////////////////////////////////////////////
-function getBlueBerryMuffin(){
+function getBlueBerryMuffin() {
     db.collection("Tims")
-    .doc("BlueberryMuffin")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("blueberry").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("BlueberryMuffin")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("blueberry").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
 
-function getTimbits(){
+function getTimbits() {
     db.collection("Tims")
-    .doc("Timbits")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("Timbits").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("Timbits")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("Timbits").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
 
-function getClassicBagel(){
+function getClassicBagel() {
     db.collection("Tims")
-    .doc("Classic Bagel")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("ClassicBagel").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("Classic Bagel")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("ClassicBagel").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
 
-function getOriginalBlendCoffeeFood(){
+function getOriginalBlendCoffeeFood() {
     db.collection("Tims")
-    .doc("Original Blend Coffee")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("OriginalBlendCoffeeFood").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("Original Blend Coffee")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("OriginalBlendCoffeeFood").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
-function getTurkeyBaconClub(){
+
+function getTurkeyBaconClub() {
     db.collection("Tims")
-    .doc("TurkeyBaconClub")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("TurkeyBacon").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("TurkeyBaconClub")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("TurkeyBacon").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
-function getClassicCookie(){
+
+function getClassicCookie() {
     db.collection("Tims")
-    .doc("ClassicCookies")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("ClassicCookie").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("ClassicCookies")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("ClassicCookie").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
 
 
@@ -206,80 +182,188 @@ function getCocoCrush() {
 
 ////////////////////////////////////////////// TripleOs Functions //////////////////////////////////////////////
 
-function getBCCHICKEN(){
+function getBCCHICKEN() {
     db.collection("TripleO")
-    .doc("BCchicken")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            var cal = snap.data().Calories;
-            localStorage.setItem(snap.id, cal);
-            document.getElementById("BCCHICKEN").innerHTML = "Calories: " + cal + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
-}
-function getBaconCheddar(){
-    db.collection("TripleO")
-    .doc("Baconcheddar")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("BaconCheddar").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("BCchicken")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                var cal = snap.data().Calories;
+                localStorage.setItem(snap.id, cal);
+                document.getElementById("BCCHICKEN").innerHTML = "Calories: " + cal + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
 
-function getChickenBurger(){
+function getBaconCheddar() {
     db.collection("TripleO")
-    .doc("ChickenBurger")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("ChickenBurger").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("Baconcheddar")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("BaconCheddar").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
 
-function getChipotle(){
+function getBaconCheddarCal() {
     db.collection("TripleO")
-    .doc("ChipoleBBQ")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("Chipotle").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("Baconcheddar")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("BaconCheddar").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price
+                + "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
 }
-function getDCT(){
+
+function getChickenBurger() {
     db.collection("TripleO")
-    .doc("DippinChicken")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("DCT").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("ChickenBurger")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("ChickenBurger").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
-function getSpicyUlt(){
+
+function getChickenBurgerCal() {
     db.collection("TripleO")
-    .doc("SpicyUltimate")
-    .onSnapshot(
-        function(snap){
-            console.log(snap.data());
-            document.getElementById("SUC").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
-        }
-    )
+        .doc("ChickenBurger")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("ChickenBurger").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price
+                + "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
 }
-function yesterdayscount(){
-    firebase.auth().onAuthStateChanged(function(user){
-        db.collection("users")
-        .doc(user.uid)
-        if (d.data().total != null){
-            x = d.data().total;
-        }
-        else{
-            x = 0;
-        }
-        document.getElementById("yesterdaycount").innerHTML = x;
-        } )
+
+function getChipotle() {
+    db.collection("TripleO")
+        .doc("ChipoleBBQ")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("Chipotle").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
 }
+
+function getChipotleCal() {
+    db.collection("TripleO")
+        .doc("ChipoleBBQ")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("Chipotle").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price
+                + "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
+}
+
+function getDCT() {
+    db.collection("TripleO")
+        .doc("DippinChicken")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("DCT").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+}
+
+function getSpicyUlt() {
+    db.collection("TripleO")
+        .doc("SpicyUltimate")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("SUC").innerHTML = "Calories: " + snap.data().Calories + "<br>" + "Price: " + snap.data().Price;
+            }
+        )
+}
+
+////////////////////////////////////////////// Value Functions //////////////////////////////////////////////
+
+
+function getBlueBerryMuffinCal() {
+    db.collection("Tims")
+        .doc("BlueberryMuffin")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("blueberry").innerHTML = "Calories: " + snap.data().Calories + "<br>" +
+                    "Price: " + snap.data().Price +
+                    "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
+}
+
+function getTimbitsCal() {
+    db.collection("Tims")
+        .doc("Timbits")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("Timbits").innerHTML = "Calories: " + snap.data().Calories + "<br>" +
+                    "Price: " + snap.data().Price +
+                    "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
+}
+
+function getClassicCookieCal() {
+    db.collection("Tims")
+        .doc("ClassicCookies")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("ClassicCookie").innerHTML = "Calories: " + snap.data().Calories +
+                    "<br>" + "Price: " + snap.data().Price +
+                    "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
+}
+
+function getPomegranatePunchCal() {
+    db.collection("Booster")
+        .doc("PomegranatePunch")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("Pomegranate").innerHTML = "Calories: " + snap.data().Calories +
+                    "<br>" + "Price: " + snap.data().Price +
+                    "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
+}
+
+function getRippedBerryCal() {
+    db.collection("Booster")
+        .doc("RippedBerry")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("RippedBerry").innerHTML = "Calories: " + snap.data().Calories +
+                    "<br>" + "Price: " + snap.data().Price +
+                    "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
+}
+
+function getStarCal() {
+    db.collection("Booster")
+        .doc("StarBerriesBananasRegular")
+        .onSnapshot(
+            function (snap) {
+                console.log(snap.data());
+                document.getElementById("StarBerriesBananasRegular").innerHTML = "Calories: " + snap.data()
+                    .Calories + "<br>" + "Price: " + snap.data().Price +
+                    "<br>" + "Calories per Dollar: " + snap.data().value;
+            }
+        )
+}
+
